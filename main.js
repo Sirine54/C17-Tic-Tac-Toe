@@ -20,6 +20,25 @@ function handleclick(e) {
   choice = !choice;
 }
 
+
+function computerChoice(){
+  let choice = Math.floor(Math.random()*9)
+
+  switch(choice){
+    case 1:
+      return cells[0];
+    case 2:
+      return cells[1];
+    case 3:
+      return cells[2];
+    case 4:
+      return cells[3]   
+
+  }  
+
+}
+
+
 function check(pick) {
   if (
     cells[0].style.background === pick &&
