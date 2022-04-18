@@ -59,7 +59,7 @@ button{
  display: flex;
  align-items: center;
  justify-content: center;
- margin: 50px auto;
+ margin: 0 auto;
  width: 190px;
  height: 75px;
  color: var(--clr-neon);
@@ -85,7 +85,7 @@ button:focus{
   left: 0;
   right: 0;
   align-items: center;
-  margin: 2em auto;
+  margin: 1em auto;
   z-index: 2;
   background-color: rgba(0, 0, 0, 0.947);
   height: 250px;
@@ -99,8 +99,26 @@ button:focus{
   font-weight: 600;
   text-transform: uppercase;
   border:2px  var(--clr-neon) solid;
+  overflow: hidden;
   
 }
 .show{
   display: none !important;
+}
+#playerName{
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+input{
+  margin: 1em;
+  height: 45px;
+  background-color:rgba(0, 0, 0, 0.53);
+  color: white;
+  font-size: 1.2em;
+  border: var(--clr-neon) .1em solid;
+
+}
+label{
+  font-size: 1.2em;
 }

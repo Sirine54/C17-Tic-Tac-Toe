@@ -6,8 +6,25 @@ let board = ['', '', '', '', '', '', '', '', ''];
 let xMark='<i class="fa-solid fa-xmark"></i>';
 let oMark='<i class="fa-solid fa-o"></i>';
 
-let xPlayer='X player';
-let oPlayer='O player';
+const xPlayer = document.getElementById('playerX');
+const oPlayer = document.getElementById('playerO');
+
+function getVal(val){
+  
+  switch(val){
+    case xPlayer:
+      val=xPlayer.value
+    break;
+    case oPlayer:
+      val=oPlayer.value  
+    break;
+    default:  
+  }
+  return val;
+  
+}
+getVal()
+
 let tie='Tie'
 
 
@@ -16,7 +33,7 @@ let activateGame = true;
 let currentPlayer = xMark;
 
 
-
+/////////////     All probabilities of winning //////////////////////
 
 let winConditions=[
   [0,1,2],
@@ -45,7 +62,6 @@ function handleclick() {
   for(let i=0;i<=7;i++){
       const winCon = winConditions[i];
       const a = board[winCon[0]];
-      console.log(a)
       const b = board[winCon[1]];
       const c = board[winCon[2]];
 
@@ -57,7 +73,7 @@ function handleclick() {
     }  
   
     }if(round){
-     showResult(currentPlayer === xMark?xPlayer : oPlayer);
+     showResult(currentPlayer === xMark? xPlayer : oPlayer);
       activateGame = false;
       return;
     }
@@ -75,16 +91,16 @@ const showResult=(playerType)=>{
    
     case xPlayer:
      
-      winMessage.innerHTML=`<h3>Congratulation</h3>
-                            <p>${xPlayer} is a winner</p>
+      winMessage.innerHTML=`<h4>Congratulation</h4>
+                            <p>${getVal(xPlayer)} is a winner</p>
                             <p>click replay for another round</p>`;
       break;                      
 
     case oPlayer:
       
-      winMessage.innerHTML=`<h3>Congratulation</h3>
-      <p>${oPlayer} is a winner</p>
-      <p>click replay for another round</p>`
+      winMessage.innerHTML=`<h4>Congratulation</h4>
+                            <p>${getVal(oPlayer)} is a winner</p>
+                            <p>click replay for another round</p>`
      break; 
     case tie:
      
@@ -131,20 +147,20 @@ function game(cell,i){
 
 
 function clean() {
+
   board = ['', '', '', '', '', '', '', '', ''];
    activateGame = true;
-   winMessage.classList.toggle('show');
 
    if(currentPlayer===oMark){
      playerPick();
    }
    cells.forEach(cell=>{
      cell.innerHTML='';
-     cell.classList.remove('playerX');
-     cell.classList.remove('playerO'); 
+
 
    })
 
+  winMessage.classList.toggle('show');
   
 }
 
@@ -154,35 +170,6 @@ function clean() {
 // emprove your app
 
 
-
-
-function computerChoice(){
-  let choice = Math.floor(Math.random()*9)
-
-  switch(choice){
-    case 1:
-      return cells[0];
-    case 2:
-      return cells[1];
-    case 3:
-      return cells[2];
-    case 4:
-      return cells[3];
-      case 5:
-      return cells[4]      
-      case 6:
-      return cells[5]
-      case 7:
-        return cells[6]     
-        case 8:
-          return cells[7]    
-          case 9:
-       return cells[8]        
-  }  
-  check(xMark);
-  check(oMark);
-
-}
 
 
 
