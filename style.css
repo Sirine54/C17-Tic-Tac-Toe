@@ -3,11 +3,21 @@ body{
   color: var(--clr-neon);
   align-items: center;
 }
-
+:root {
+  --clr-neon: rgb(255, 20, 189);
+  --clr-bg: rgb(49, 32, 43);
+}
+h1{
+ text-align: center;
+ color: var(--clr-neon);
+ font-size:3em;
+ text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+ 
+}
 .board {
   width: 100%;
   display: grid;
-  margin: 8em auto;
+  margin: 4em auto;
   justify-content: center;
   align-content: center;
   align-items: center;
@@ -16,10 +26,7 @@ body{
   
 }
 
-:root {
-  --clr-neon: rgb(255, 20, 189);
-  --clr-bg: rgb(49, 32, 43);
-}
+
 .cell {
   width: 110px;
   height: 110px;
@@ -35,6 +42,18 @@ body{
   text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
   
 }
+.cell:hover{
+  background-color: rgba(12, 13, 13, 0.607);
+}
+.cell i.fa-xmark{
+  font-size: 7em;
+  color: aquamarine;
+}
+.cell i.fa-o{
+  color:rgb(226, 220, 43);
+  font-size: 7em;
+}
+
 
 button{
  display: flex;
@@ -58,4 +77,30 @@ button:focus{
   background-color: var(--clr-neon);
   box-shadow: inset 0 0 .8em 0 var(--clr-neon), 0 0 .4em 0 var(--clr-neon);
   color: var(--clr-bg);
+}
+
+#displayResult{
+  position: absolute;
+  top:0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  margin: 2em auto;
+  z-index: 2;
+  background-color: rgba(0, 0, 0, 0.947);
+  height: 250px;
+  width: 450px;
+  border-radius: 45px;
+  text-align: center;
+  font-size: 1.8em;
+  padding: .2em 0 .2em 0;
+  font-style: var(--clr-neon);
+  text-shadow: 0 0 0.125em hsl(0 0% 100% / 0.3), 0 0 0.45em currentColor;
+  font-weight: 600;
+  text-transform: uppercase;
+  border:2px  var(--clr-neon) solid;
+  
+}
+.show{
+  display: none !important;
 }
